@@ -19,6 +19,10 @@ const routes = {
     res.writeHead(200, { 'Content-Type': 'text/html' })
     fs.createReadStream(path.join(root, '/index.html')).pipe(res)
   },
+  ['/hoco']: function(req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/html' })
+    fs.createReadStream(path.join(root, '/hoco/sss.jpg')).pipe(res)
+  },
   ['/bundle.js']: function(req, res) {
     res.writeHead(200, { 'Content-Type': 'text/javascript' })
     fs.createReadStream(path.join(root, '/bundle.js')).pipe(res)
