@@ -21,6 +21,10 @@ const routes = {
   },
   ['/hoco']: function(req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' })
+    fs.createReadStream(path.join(root, '/hoco/index.html')).pipe(res)
+  },
+  ['/hoco/sss.jpg']: function(req, res) {
+    res.writeHead(200, { 'Content-Type': 'image/jpg' })
     fs.createReadStream(path.join(root, '/hoco/sss.jpg')).pipe(res)
   },
   ['/bundle.js']: function(req, res) {
@@ -79,7 +83,7 @@ function collectTweets(node, tweets) {
       disectTweet(node, id, tweets)
     }
   }
-if (node.childNodes) {
+  if (node.childNodes) {
     node.childNodes.forEach((node) => {
       collectTweets(node, tweets)
     })
@@ -115,6 +119,7 @@ function getTS(node) {
     }, false)
   }
 }
+
 function disectTweet(node, id, tweets) {
   if (node.classList && node.classList.contains('stream-item-header')) {
     var ts = getTS(node)
