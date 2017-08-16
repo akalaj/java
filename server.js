@@ -24,7 +24,7 @@ const routes = {
     fs.createReadStream(path.join(root, '/hoco/index.html')).pipe(res)
   },
   ['/hoco/sss.jpg']: function(req, res) {
-    res.writeHead(200, { 'Content-Type': 'image/jpg' })
+    res.writeHead(200, { 'Content-Type': 'image/jpeg' })
     fs.createReadStream(path.join(root, '/hoco/sss.jpg')).pipe(res)
   },
   ['/bundle.js']: function(req, res) {
